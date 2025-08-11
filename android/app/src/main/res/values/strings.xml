@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SpaceHub</string>
+    <string name="title_activity_main">SpaceHub</string>
+    <string name="package_name">com.spacehub.app</string>
+    <string name="custom_url_scheme">com.spacehub.app</string>
+</resources>
