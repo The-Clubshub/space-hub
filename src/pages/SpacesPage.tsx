@@ -33,26 +33,29 @@ const SpacesPage = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Spaces</h1>
-        <Link to="/spaces/create" className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+    <div className="w-full">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 lg:mb-8 gap-4">
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">Spaces</h1>
+        <Link 
+          to="/spaces/create" 
+          className="w-full lg:w-auto inline-flex items-center justify-center px-4 py-3 lg:py-2 bg-indigo-600 text-white rounded-xl lg:rounded-lg hover:bg-indigo-700 transition-colors text-base lg:text-sm"
+        >
           <Plus size={20} className="mr-2" />
           Create Space
         </Link>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {spacesWithDetails?.map((space: any) => {
           return (
-            <div key={space._id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div key={space._id} className="bg-white rounded-xl lg:rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <img 
                 src={space.images && space.images.length > 0 ? space.images[0] : 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800'} 
                 alt={space.name} 
                 className="w-full h-48 object-cover" 
               />
-              <div className="p-6">
-                <div className="flex items-center space-x-2 mb-2">
+              <div className="p-4 lg:p-6">
+                <div className="flex items-center space-x-2 mb-3">
                   <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
                     {space.type.replace('_', ' ').toUpperCase()}
                   </span>
@@ -63,12 +66,12 @@ const SpacesPage = () => {
                   )}
                 </div>
                 
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-2">
                   <Link to="/spaces/$spaceId" params={{ spaceId: space._id }} className="hover:text-indigo-600">
                     {space.name}
                   </Link>
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{space.description}</p>
+                <p className="text-gray-600 mb-4 line-clamp-2 text-sm lg:text-base">{space.description}</p>
                 
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center text-sm text-gray-500">
@@ -94,18 +97,18 @@ const SpacesPage = () => {
                   </div>
                 )}
 
-                <div className="flex space-x-2">
+                <div className="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2">
                   <Link
                     to="/spaces/$spaceId"
                     params={{ spaceId: space._id }}
-                    className="flex-1 text-center text-indigo-600 hover:text-indigo-800 font-medium py-2 border border-indigo-600 rounded hover:bg-indigo-50 transition-colors"
+                    className="flex-1 text-center text-indigo-600 hover:text-indigo-800 font-medium py-3 lg:py-2 border-2 border-indigo-600 rounded-xl lg:rounded hover:bg-indigo-50 transition-colors text-base lg:text-sm"
                   >
                     View Details
                   </Link>
                   <Link
                     to="/spaces/$spaceId/edit"
                     params={{ spaceId: space._id }}
-                    className="flex-shrink-0 text-center text-green-600 hover:text-green-800 font-medium py-2 px-3 border border-green-600 rounded hover:bg-green-50 transition-colors"
+                    className="flex-shrink-0 text-center text-green-600 hover:text-green-800 font-medium py-3 lg:py-2 px-4 lg:px-3 border-2 border-green-600 rounded-xl lg:rounded hover:bg-green-50 transition-colors text-base lg:text-sm"
                     title="Edit Space"
                   >
                     <Edit size={16} />
@@ -113,7 +116,7 @@ const SpacesPage = () => {
                   <Link
                     to="/spaces/$spaceId/book"
                     params={{ spaceId: space._id }}
-                    className="flex-1 text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors"
+                    className="flex-1 text-center bg-blue-600 text-white py-3 lg:py-2 rounded-xl lg:rounded hover:bg-blue-700 transition-colors text-base lg:text-sm"
                   >
                     Book Now
                   </Link>
@@ -125,13 +128,13 @@ const SpacesPage = () => {
       </div>
 
       {spacesWithDetails.length === 0 && (
-        <div className="text-center py-16">
+        <div className="text-center py-12 lg:py-16">
           <div className="text-gray-400 mb-4">
             <Users size={64} className="mx-auto" />
           </div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">No spaces yet</h3>
           <p className="text-gray-600 mb-6">Be the first to create a space and start building a community!</p>
-          <button className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+          <button className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-xl lg:rounded-lg hover:bg-indigo-700 transition-colors text-base">
             <Plus size={20} className="mr-2" />
             Create Your First Space
           </button>

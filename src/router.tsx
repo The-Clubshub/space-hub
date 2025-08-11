@@ -16,8 +16,10 @@ import Navigation from './components/Navigation'
 const rootRoute = createRootRoute({
   component: () => (
     <div className="min-h-screen bg-gray-50">
+      {/* Status bar spacing for iOS */}
+      <div className="lg:hidden status-bar-height bg-white"></div>
       <Navigation />
-      <main className="container mx-auto px-4 py-8">
+      <main className="lg:container lg:mx-auto px-4 py-4 lg:py-8">
         <Outlet />
       </main>
     </div>
